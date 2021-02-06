@@ -8,6 +8,7 @@ stories:
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
+  - action: utter_goodbye
 
 - story: sad path 1
   steps:
@@ -18,6 +19,7 @@ stories:
   - action: utter_did_that_help
   - intent: affirm
   - action: utter_happy
+  - action: utter_goodbye
 
 - story: sad path 2
   steps:
@@ -27,4 +29,5 @@ stories:
   - action: utter_cheer_up
   - action: utter_did_that_help
   - intent: deny
+  - intent: utter_sorry
   - action: utter_goodbye

@@ -23,6 +23,9 @@ responses:
   utter_happy:
   - text: "Great, carry on!"
 
+  utter_sorry:
+  - text: "Sorry I could't help. Hope you feel better soon."
+
   utter_goodbye:
   - text: "Bye"
 
