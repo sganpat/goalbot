@@ -9,17 +9,17 @@ nlu:
     - hello there
     - good morning
     - good evening
-    - moin
     - hey there
     - let's go
     - hey dude
     - goodmorning
     - goodevening
     - good afternoon
+    - oye
+    - sup
 
 - intent: goodbye
   examples: |
-    - good afternoon
     - cu
     - good by
     - cee you later
@@ -30,6 +30,10 @@ nlu:
     - see you around
     - bye bye
     - see you later
+    - see ya
+    - see yuh
+    - laterz
+    - l8r
 
 - intent: affirm
   examples: |
@@ -39,6 +43,8 @@ nlu:
     - of course
     - that sounds good
     - correct
+    - yup
+    - yep
 
 - intent: deny
   examples: |
@@ -49,6 +55,85 @@ nlu:
     - don't like that
     - no way
     - not really
+    - nope
+    - nah
+    - nay
+
+- intent: goal.add
+  examples: |
+    - I want to add a goal
+    - New goal
+    - Let's create a new goal please
+    - can we add a new goal
+    - let's add a goal
+
+- intent: goal.get
+  examples: |
+    - what is my current goal?
+    - give me my goal
+    - what is my goal?
+
+- intent: goal.specific
+  examples: |
+    - I will work on project for the next 4 hours
+    - I will produce the report by the end of the day
+    - by 4pm I will complete the paper
+
+- intent: goal.actions
+  examples: |
+    - I will write an outline and then write the report.
+    - I will first determine what I need to research and then do the research.
+    - I will remove all distractions so that I can focus on my work.
+
+- intent: goal.explain
+  examples: |
+    - Can you tell me about setting goals?
+    - How can I set good goals?
+    - Explain how to set goals?
+    - What makes a good goal?
+
+- intent: goal.example
+  examples: |
+    - Can you show me an example goal?
+    - Have any examples to show?
+    - Any example goals?
+
+- intent: goal.anotherexample
+  examples: |
+    - Do you have more examples?
+    - Another example?
+    - What other examples do you have?
+
+- intent: bot.help
+  examples: |
+    - Can I have some help please?
+    - What do I do now?
+    - What can I do?
+    - Help please.
+
+- intent: bot.about
+  examples: |
+    - What is your purpose?
+    - What do you do?
+    - What can you do for me?
+    - What does this bot do?
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - are you a real person?
+    - are you real?
+
+- intent: set_name
+  examples: |
+    - My name is [Sachin](username)
+    - Call me [John](username)
+
+
+# Old Stuff
 
 - intent: mood_great
   examples: |
@@ -66,6 +151,7 @@ nlu:
     - so so perfect
     - so good
     - so perfect
+    - happy
 
 - intent: mood_unhappy
   examples: |
@@ -84,10 +170,3 @@ nlu:
     - so saad
     - so sad
     - a little down
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
