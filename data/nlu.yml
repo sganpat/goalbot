@@ -72,12 +72,14 @@ nlu:
     - what is my current goal?
     - give me my goal
     - what is my goal?
+    - what's my goal
 
 - intent: goal.specific
   examples: |
     - I will work on project for the next 4 hours
     - I will produce the report by the end of the day
     - by 4pm I will complete the paper
+    - I will write the paper by 5pm today
 
 - intent: goal.actions
   examples: |
@@ -91,6 +93,8 @@ nlu:
     - How can I set good goals?
     - Explain how to set goals?
     - What makes a good goal?
+    - What is a goal?
+    - how can i set a goal
 
 - intent: goal.example
   examples: |
@@ -130,7 +134,9 @@ nlu:
 - intent: set_name
   examples: |
     - My name is [Sachin](username)
+    - My name is [Vashti](username)
     - Call me [John](username)
+    - Call me [Mary](username)
 
 
 # Old Stuff
