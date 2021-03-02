@@ -95,6 +95,7 @@ nlu:
     - What makes a good goal?
     - What is a goal?
     - how can i set a goal
+    - Can you show me how to set a goal
 
 - intent: goal.example
   examples: |
