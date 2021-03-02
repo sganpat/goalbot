@@ -9,6 +9,7 @@ stories:
   - action: utter_welcome
   - action: utter_do
   - intent: goal.add
+  - action: utter_what_goal
   - action: utter_confirm_goal
   - intent: affirm
   - action: utter_goodbye

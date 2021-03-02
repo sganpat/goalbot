@@ -30,6 +30,9 @@ responses:
   utter_do:
   - text: "What would you like to do?"
 
+  utter_what_goal:
+  - text: "What goal would you like to add?"
+
   utter_confirm_goal:
   - text: "Do you want to add this goal?"
 
