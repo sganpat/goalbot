@@ -42,6 +42,28 @@ responses:
   utter_iamabot:
   - text: "I am a conversational agent, powered by Rasa."
 
+  utter_what_is_goal:
+  - text: "A goal is anything that you wish to achieve or accomplish. It is the desired outcome of some activity or effort."
+
+  utter_specific:
+  - text: "The goal must be specific."
+
+  utter_effortful:
+  - text: "The goal must involve some effort."
+
+  utter_persistence:
+  - text: "You must be willing to persist through the goal."
+
+  utter_strategy:
+  - text: "Goal must have a strategy."
+
+  utter_does_this_help:
+  - text: "Does this help?"
+
+  utter_example_goal:
+  - text: "This is an example goal."
+
+
 
 session_config:
   session_expiration_time: 60

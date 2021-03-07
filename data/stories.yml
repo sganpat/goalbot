@@ -14,6 +14,28 @@ stories:
   - intent: affirm
   - action: utter_goodbye
 
+- story: learning path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_welcome
+  - action: utter_do
+  - intent: goal.explain
+  - action: utter_what_is_goal
+  - action: utter_specific
+  - action: utter_effortful
+  - action: utter_persistence
+  - action: utter_strategy
+  - action: utter_does_this_help
+  - intent: goal.example
+  - action: utter_example_goal
+  - action: utter_do
+  - intent: goal.add
+  - action: utter_what_goal
+  - action: utter_confirm_goal
+  - intent: affirm
+  - action: utter_goodbye
+
 
 # Old stuff
 
