@@ -45,7 +45,7 @@ stories:
   - intent: bot.about
   - action: utter_about_what
   - action: utter_about_purpose
-  - action: utter._about_why
+  - action: utter_about_why
   - action: utter_do
   - intent: goal.add
   - action: utter_what_goal
