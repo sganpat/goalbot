@@ -123,7 +123,7 @@ nlu:
     - What can you do for me?
     - What does this bot do?
 
-- intent: bot_challenge
+- intent: bot.challenge
   examples: |
     - are you a bot?
     - are you a human?

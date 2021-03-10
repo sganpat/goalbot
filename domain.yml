@@ -14,8 +14,8 @@ intents:
   - goal.anotherexample
   - bot.help
   - bot.about
+  - bot.challenge
   - set_name
-  - bot_challenge
   - mood_great
   - mood_unhappy
 
@@ -62,6 +62,16 @@ responses:
 
   utter_example_goal:
   - text: "This is an example goal."
+
+  utter.about.what:
+  - text: "Goalbot is a goal setting bot."
+
+  utter.about.purpose:
+  - text: "The pupose of Goalbot is to help you set goals in a way that you are more likely to achieve them."
+
+  utter.about.why:
+  - text: "Achieving your goals have been shown to improve wellbeing and has a virtuouse circle of improving performance."
+
 
 
 
