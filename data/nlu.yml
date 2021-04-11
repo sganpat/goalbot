@@ -45,6 +45,7 @@ nlu:
     - correct
     - yup
     - yep
+    - uh huh
 
 - intent: deny
   examples: |
@@ -59,7 +60,7 @@ nlu:
     - nah
     - nay
 
-- intent: goal.add
+- intent: goal_add
   examples: |
     - I want to add a goal
     - New goal
@@ -67,27 +68,27 @@ nlu:
     - can we add a new goal
     - let's add a goal
 
-- intent: goal.get
+- intent: goal_get
   examples: |
     - what is my current goal?
     - give me my goal
     - what is my goal?
     - what's my goal
 
-- intent: goal.specific
+- intent: goal_specific
   examples: |
     - I will work on project for the next 4 hours
     - I will produce the report by the end of the day
     - by 4pm I will complete the paper
     - I will write the paper by 5pm today
 
-- intent: goal.actions
+- intent: goal_actions
   examples: |
     - I will write an outline and then write the report.
     - I will first determine what I need to research and then do the research.
     - I will remove all distractions so that I can focus on my work.
 
-- intent: goal.explain
+- intent: goal_explain
   examples: |
     - Can you tell me about setting goals?
     - How can I set good goals?
@@ -97,33 +98,33 @@ nlu:
     - how can i set a goal
     - Can you show me how to set a goal
 
-- intent: goal.example
+- intent: goal_example
   examples: |
     - Can you show me an example goal?
     - Have any examples to show?
     - Any example goals?
 
-- intent: goal.anotherexample
+- intent: goal_anotherexample
   examples: |
     - Do you have more examples?
     - Another example?
     - What other examples do you have?
 
-- intent: bot.help
+- intent: bot_help
   examples: |
     - Can I have some help please?
     - What do I do now?
     - What can I do?
     - Help please.
 
-- intent: bot.about
+- intent: bot_about
   examples: |
     - What is your purpose?
     - What do you do?
     - What can you do for me?
     - What does this bot do?
 
-- intent: bot.challenge
+- intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
@@ -139,41 +140,3 @@ nlu:
     - Call me [John](username)
     - Call me [Mary](username)
 
-
-# Old Stuff
-
-# - intent: mood_great
-#   examples: |
-#     - perfect
-#     - great
-#     - amazing
-#     - feeling like a king
-#     - wonderful
-#     - I am feeling very good
-#     - I am great
-#     - I am amazing
-#     - I am going to save the world
-#     - super stoked
-#     - extremely good
-#     - so so perfect
-#     - so good
-#     - so perfect
-#     - happy
-
-# - intent: mood_unhappy
-#   examples: |
-#     - my day was horrible
-#     - I am sad
-#     - I don't feel very well
-#     - I am disappointed
-#     - super sad
-#     - I'm so sad
-#     - sad
-#     - very sad
-#     - unhappy
-#     - not good
-#     - not very good
-#     - extremly sad
-#     - so saad
-#     - so sad
-#     - a little down

@@ -8,81 +8,48 @@ stories:
   - action: utter_greet
   - action: utter_welcome
   - action: utter_do
-  - intent: goal.add
+  - intent: goal_add
   - action: utter_what_goal
   - action: utter_confirm_goal
   - intent: affirm
   - action: utter_goodbye
 
-- story: learning path
+- story: learning path happy
   steps:
   - intent: greet
   - action: utter_greet
   - action: utter_welcome
   - action: utter_do
-  - intent: goal.explain
+  - intent: goal_explain
   - action: utter_what_is_goal
   - action: utter_specific
   - action: utter_effortful
   - action: utter_persistence
   - action: utter_strategy
   - action: utter_does_this_help
-  - intent: goal.example
+  - intent: goal_example
   - action: utter_example_goal
   - action: utter_do
-  - intent: goal.add
+  - intent: goal_add
   - action: utter_what_goal
   - action: utter_confirm_goal
   - intent: affirm
   - action: utter_goodbye
 
-- story: about
+- story: about happy
   steps:
   - intent: greet
   - action: utter_greet
   - action: utter_welcome
   - action: utter_do
-  - intent: bot.about
+  - intent: bot_about
   - action: utter_about_what
   - action: utter_about_purpose
   - action: utter_about_why
   - action: utter_do
-  - intent: goal.add
+  - intent: goal_add
   - action: utter_what_goal
   - action: utter_confirm_goal
   - intent: affirm
   - action: utter_goodbye 
 
-
-
-# Old stuff
-
-# - story: happy path
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_great
-#   - action: utter_happy
-#   - action: utter_goodbye
-
-# - story: sad path 1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: affirm
-#   - action: utter_happy
-#   - action: utter_goodbye
-
-# - story: sad path 2
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: deny
-#   - action: utter_sorry
-#   - action: utter_goodbye

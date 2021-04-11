@@ -5,20 +5,20 @@ intents:
   - goodbye
   - affirm
   - deny
-  - goal.add
-  - goal.get
-  - goal.specific
-  - goal.actions
-  - goal.explain
-  - goal.example
-  - goal.anotherexample
-  - bot.help
-  - bot.about
-  - bot.challenge
+  - goal_add
+  - goal_get
+  - goal_inform
+  - goal_actions
+  - goal_explain
+  - goal_example
+  - goal_anotherexample
+  - bot_help
+  - bot_about
+  - bot_challenge
   - set_name
-  # - mood_great
-  # - mood_unhappy
 
+entities:
+  - username
 
 responses:
   utter_greet:
@@ -72,7 +72,39 @@ responses:
   utter_about_why:
   - text: "Achieving your goals have been shown to improve wellbeing and has a virtuouse circle of improving performance."
 
+slots:
+  goal:
+    type: any
+  specific_goal:
+    type: any
+  challenging_goal:
+    type: any
+  persistent_goal:
+    type: any
+  goal_actions:
+    type: any 
 
+
+actions:
+- action_submit_results
+
+forms:
+  goal_form:
+    goal:
+      - type: from_text
+        intent: inform
+    specific_goal:
+      - type: from_text
+        intent: inform
+    challenging_goal:
+      - type: from_text
+        intent: inform
+    persistent_goal:
+      - type: from_text
+        intent: inform
+    goal_actions:
+      - type: from_text
+        intent: inform
 
 
 session_config:
@@ -80,20 +112,4 @@ session_config:
   carry_over_slots_to_new_session: true
 
 
-# Old Stuff
-
-# responses:
-
-  # utter_cheer_up:
-  # - text: "Here is something to cheer you up:"
-  #   image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  # utter_did_that_help:
-  # - text: "Did that help you?"
-
-  # utter_happy:
-  # - text: "Great, carry on!"
-
-  # utter_sorry:
-  # - text: "Sorry I could't help. Hope you feel better soon."
 
