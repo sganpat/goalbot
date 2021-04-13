@@ -33,6 +33,21 @@ responses:
   utter_what_goal:
   - text: "What goal would you like to add?"
 
+  utter_ask_goal:
+  - text: "What goal would you like to add?"
+
+  utter_ask_specific_goal:
+  - text: "Is this goal specific?"
+
+  utter_ask_challenging_goal:
+  - text: "Is this goal challenging?"
+
+  utter_ask_persistent_goal:
+  - text: "Do you intend to work as long as it take to complete the goal?"
+
+  utter_ask_goal_actions:
+  - text: "What actions will you take to complete the goal?"
+
   utter_confirm_goal:
   - text: "Do you want to add this goal?"
 
@@ -71,6 +86,14 @@ responses:
 
   utter_about_why:
   - text: "Achieving your goals have been shown to improve wellbeing and has a virtuouse circle of improving performance."
+
+  utter_slots_values:
+  - text: "Here are the slot values:\n
+            - Goal: {goal}\n
+            - Specific Goal: {specific_goal}\n
+            - Challenging Goal: {challenging_goal}\n
+            - Persistent Goal: {persistent_goal}\n
+            - Goal Actions: {goal_actions}\n"
 
 slots:
   goal:

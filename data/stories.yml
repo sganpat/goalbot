@@ -9,7 +9,8 @@ stories:
   - action: utter_welcome
   - action: utter_do
   - intent: goal_add
-  - action: utter_what_goal
+  - action: goal_form
+  - active_loop: goal_form
   - action: utter_confirm_goal
   - intent: affirm
   - action: utter_goodbye
