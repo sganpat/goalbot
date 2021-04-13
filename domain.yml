@@ -5,6 +5,8 @@ intents:
   - goodbye
   - affirm
   - deny
+  - inform
+  - thankyou
   - goal_add
   - goal_get
   - goal_inform
@@ -53,6 +55,9 @@ responses:
 
   utter_goodbye:
   - text: "Ok. Bye"
+
+  utter_no_worries:
+  - text: "No problem :)"
 
   utter_iamabot:
   - text: "I am a conversational agent, powered by Rasa."
@@ -115,19 +120,32 @@ forms:
   goal_form:
     goal:
       - type: from_text
-        intent: inform
+        intent: 
+          - inform
+          - affirm
+          - deny
     specific_goal:
       - type: from_text
-        intent: inform
+        intent: 
+          - inform
+          - affirm
+          - deny
     challenging_goal:
       - type: from_text
-        intent: inform
+        intent: 
+          - inform
+          - affirm
+          - deny
     persistent_goal:
-      - type: from_text
-        intent: inform
+      - type: from_intent
+        intent: affirm
+        value: true
+      - type: from_intent
+        intent: deny
+        value: false
     goal_actions:
       - type: from_text
-        intent: inform
+        intent: goal_actions
 
 
 session_config:

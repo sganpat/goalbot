@@ -13,10 +13,10 @@ rules:
     - action: action_submit_results
     - action: utter_slots_values
   
-  - rule: Greeting
-    steps:
-    - intent: greet
-    - action: utter_greet
+  # - rule: Greeting
+  #   steps:
+  #   - intent: greet
+  #   - action: utter_greet
   
   - rule: Goodbye
     steps:

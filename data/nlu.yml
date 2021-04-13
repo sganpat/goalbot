@@ -60,6 +60,14 @@ nlu:
     - nah
     - nay
 
+- intent: thankyou
+  examples: |
+    - okay great thanks
+    - thank you
+    - sure thanks
+    - thanks bye
+    - thanks
+
 - intent: goal_add
   examples: |
     - I want to add a goal
