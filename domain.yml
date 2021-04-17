@@ -9,6 +9,8 @@ intents:
   - thankyou
   - goal_add
   - goal_get
+  - goal_make
+  - goal_specific
   - goal_inform
   - goal_actions
   - goal_explain
@@ -121,19 +123,14 @@ forms:
     goal:
       - type: from_text
         intent: 
-          - inform
-          - affirm
-          - deny
     specific_goal:
       - type: from_text
         intent: 
-          - inform
           - affirm
           - deny
     challenging_goal:
       - type: from_text
         intent: 
-          - inform
           - affirm
           - deny
     persistent_goal:

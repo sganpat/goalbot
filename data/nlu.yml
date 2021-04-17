@@ -83,6 +83,12 @@ nlu:
     - what is my goal?
     - what's my goal
 
+- intent: goal_make
+  examples: |
+    - I want to write a report
+    - I want to build a chatbot
+    - Write a paper
+
 - intent: goal_specific
   examples: |
     - I will work on project for the next 4 hours

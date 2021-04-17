@@ -8,12 +8,12 @@ stories:
   - action: utter_greet
   - action: utter_welcome
   - action: utter_do
-  - intent: goal_add
-  - action: goal_form
-  - active_loop: goal_form
+  # - intent: goal_add
+  # - action: goal_form
+  # - active_loop: goal_form
 #  - action: utter_confirm_goal
-  - intent: affirm
-  - action: utter_goodbye
+#  - intent: affirm
+#  - action: utter_goodbye
 
 - story: learning path happy
   steps:
@@ -31,11 +31,11 @@ stories:
   - intent: goal_example
   - action: utter_example_goal
   - action: utter_do
-  - intent: goal_add
-  - action: utter_what_goal
-  - action: utter_confirm_goal
-  - intent: affirm
-  - action: utter_goodbye
+  # - intent: goal_add
+  # - action: utter_what_goal
+  # - action: utter_confirm_goal
+  # - intent: affirm
+  # - action: utter_goodbye
 
 - story: about happy
   steps:
@@ -48,9 +48,9 @@ stories:
   - action: utter_about_purpose
   - action: utter_about_why
   - action: utter_do
-  - intent: goal_add
-  - action: utter_what_goal
-  - action: utter_confirm_goal
-  - intent: affirm
-  - action: utter_goodbye 
+  # - intent: goal_add
+  # - action: utter_what_goal
+  # - action: utter_confirm_goal
+  # - intent: affirm
+  # - action: utter_goodbye 
 
