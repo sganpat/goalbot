@@ -2,11 +2,11 @@ version: "2.0"
 
 rules:
 
-  - rule: Activate form
-    steps:
-    - intent: goal_add
-    - action: goal_form
-    - active_loop: goal_form
+  # - rule: Activate form
+  #   steps:
+  #   - intent: goal_add
+  #   - action: goal_form
+  #   - active_loop: goal_form
   
   - rule: Submit form
     condition:
@@ -18,10 +18,15 @@ rules:
     - slot_was_set:
       - requested_slot: null
     # The action we want to run when the form is submitted.
-    - action: action_submit_results
+    # - action: action_submit_results
     - action: utter_slots_values
     - action: utter_goodbye
   
+  - rule: Show slots
+    steps:
+    - intent: show_slots
+    - action: utter_slots_values
+
   # - rule: Greeting
   #   steps:
   #   - intent: greet

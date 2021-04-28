@@ -1,5 +1,4 @@
 version: "2.0"
-
 nlu:
 - intent: greet
   examples: |
@@ -17,7 +16,6 @@ nlu:
     - good afternoon
     - oye
     - sup
-
 - intent: goodbye
   examples: |
     - cu
@@ -34,7 +32,6 @@ nlu:
     - see yuh
     - laterz
     - l8r
-
 - intent: affirm
   examples: |
     - yes
@@ -46,7 +43,6 @@ nlu:
     - yup
     - yep
     - uh huh
-
 - intent: deny
   examples: |
     - no
@@ -59,7 +55,6 @@ nlu:
     - nope
     - nah
     - nay
-
 - intent: thankyou
   examples: |
     - okay great thanks
@@ -67,7 +62,15 @@ nlu:
     - sure thanks
     - thanks bye
     - thanks
-
+- intent: explain
+  examples: |
+    - Why do you need to know this?
+    - Why is this important?
+    - Why does the goal need to be specific?
+    - Why does the goal need to be persistent?
+    - Why does it need to be challenging?
+    - Can you explain this?
+    - what do you mean?
 - intent: goal_add
   examples: |
     - I want to add a goal
@@ -75,33 +78,32 @@ nlu:
     - Let's create a new goal please
     - can we add a new goal
     - let's add a goal
-
 - intent: goal_get
   examples: |
     - what is my current goal?
     - give me my goal
     - what is my goal?
     - what's my goal
-
 - intent: goal_make
   examples: |
     - I want to write a report
     - I want to build a chatbot
     - Write a paper
-
-- intent: goal_specific
-  examples: |
-    - I will work on project for the next 4 hours
-    - I will produce the report by the end of the day
-    - by 4pm I will complete the paper
-    - I will write the paper by 5pm today
-
+    - i want to build a bot.
+    - i want to build a bot
+    - i want to write a paper
+    - i will write my report in four hours
 - intent: goal_actions
   examples: |
     - I will write an outline and then write the report.
     - I will first determine what I need to research and then do the research.
     - I will remove all distractions so that I can focus on my work.
-
+    - I will work on project for the next 4 hours
+    - I will produce the report by the end of the day
+    - by 4pm I will complete the paper
+    - I will write the paper by 5pm today
+    - I will sit at a table and focus.
+    - i will set an write for 3 hours
 - intent: goal_explain
   examples: |
     - Can you tell me about setting goals?
@@ -111,33 +113,28 @@ nlu:
     - What is a goal?
     - how can i set a goal
     - Can you show me how to set a goal
-
 - intent: goal_example
   examples: |
     - Can you show me an example goal?
     - Have any examples to show?
     - Any example goals?
-
 - intent: goal_anotherexample
   examples: |
     - Do you have more examples?
     - Another example?
     - What other examples do you have?
-
 - intent: bot_help
   examples: |
     - Can I have some help please?
     - What do I do now?
     - What can I do?
     - Help please.
-
 - intent: bot_about
   examples: |
     - What is your purpose?
     - What do you do?
     - What can you do for me?
     - What does this bot do?
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -146,11 +143,15 @@ nlu:
     - am I talking to a human?
     - are you a real person?
     - are you real?
-
 - intent: set_name
   examples: |
     - My name is [Sachin](username)
     - My name is [Vashti](username)
     - Call me [John](username)
     - Call me [Mary](username)
-
+- intent: show_slots
+  examples: | 
+    - Please show me the current slots
+    - What are the current slots
+    - Show me the slots
+  

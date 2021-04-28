@@ -1,153 +1,151 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - inform
-  - thankyou
-  - goal_add
-  - goal_get
-  - goal_make
-  - goal_specific
-  - goal_inform
-  - goal_actions
-  - goal_explain
-  - goal_example
-  - goal_anotherexample
-  - bot_help
-  - bot_about
-  - bot_challenge
-  - set_name
-
-entities:
-  - username
-
-responses:
-  utter_greet:
-  - text: "Hey!"
-
-  utter_welcome:
-  - text: "I'm the goalbot and I help you plan your goals."
-
-  utter_do:
-  - text: "What would you like to do?"
-
-  utter_what_goal:
-  - text: "What goal would you like to add?"
-
-  utter_ask_goal:
-  - text: "What goal would you like to add?"
-
-  utter_ask_specific_goal:
-  - text: "Is this goal specific?"
-
-  utter_ask_challenging_goal:
-  - text: "Is this goal challenging?"
-
-  utter_ask_persistent_goal:
-  - text: "Do you intend to work as long as it take to complete the goal?"
-
-  utter_ask_goal_actions:
-  - text: "What actions will you take to complete the goal?"
-
-  utter_confirm_goal:
-  - text: "Do you want to add this goal?"
-
-  utter_goodbye:
-  - text: "Ok. Bye"
-
-  utter_no_worries:
-  - text: "No problem :)"
-
-  utter_iamabot:
-  - text: "I am a conversational agent, powered by Rasa."
-
-  utter_what_is_goal:
-  - text: "A goal is anything that you wish to achieve or accomplish. It is the desired outcome of some activity or effort."
-
-  utter_specific:
-  - text: "The goal must be specific."
-
-  utter_effortful:
-  - text: "The goal must involve some effort."
-
-  utter_persistence:
-  - text: "You must be willing to persist through the goal."
-
-  utter_strategy:
-  - text: "Goal must have a strategy."
-
-  utter_does_this_help:
-  - text: "Does this help?"
-
-  utter_example_goal:
-  - text: "This is an example goal."
-
-  utter_about_what:
-  - text: "Goalbot is a goal setting bot."
-
-  utter_about_purpose:
-  - text: "The pupose of Goalbot is to help you set goals in a way that you are more likely to achieve them."
-
-  utter_about_why:
-  - text: "Achieving your goals have been shown to improve wellbeing and has a virtuouse circle of improving performance."
-
-  utter_slots_values:
-  - text: "Here are the slot values:\n
-            - Goal: {goal}\n
-            - Specific Goal: {specific_goal}\n
-            - Challenging Goal: {challenging_goal}\n
-            - Persistent Goal: {persistent_goal}\n
-            - Goal Actions: {goal_actions}\n"
-
-slots:
-  goal:
-    type: any
-  specific_goal:
-    type: any
-  challenging_goal:
-    type: any
-  persistent_goal:
-    type: any
-  goal_actions:
-    type: any 
-
-
-actions:
-- action_submit_results
-
-forms:
-  goal_form:
-    goal:
-      - type: from_text
-        intent: 
-    specific_goal:
-      - type: from_text
-        intent: 
-          - affirm
-          - deny
-    challenging_goal:
-      - type: from_text
-        intent: 
-          - affirm
-          - deny
-    persistent_goal:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
-    goal_actions:
-      - type: from_text
-        intent: goal_actions
-
+version: '2.0'
 
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 
+intents:
+- deny
+- goal_add
+- goal_actions
+- goal_make
+- affirm
+- greet
+- goodbye
+- inform
+- thankyou
+- explain
+- goal_get
+- goal_specific
+- goal_inform
+- goal_explain
+- goal_example
+- goal_anotherexample
+- bot_help
+- bot_about
+- bot_challenge
+- set_name
+- show_slots
 
+entities:
+- username
 
+slots:
+  goal:
+    type: any
+    influence_conversation: false
+  specific_goal:
+    type: any
+    influence_conversation: false
+  challenging_goal:
+    type: any
+    influence_conversation: false
+  persistent_goal:
+    type: any
+    influence_conversation: false
+  goal_actions:
+    type: any
+    influence_conversation: false
+
+responses:
+  utter_greet:
+  - text: Hey!
+  utter_welcome:
+  - text: I'm the goalbot and I help you plan your goals.
+  utter_do:
+  - text: What would you like to do?
+  utter_what_goal:
+  - text: What goal would you like to add?
+  utter_ask_goal:
+  - text: What goal would you like to add?
+  utter_ask_specific_goal:
+  - text: Is this goal specific?
+  utter_make_specific_goal:
+  - text: Reword your goal to make it more specific.
+  utter_ask_challenging_goal:
+  - text: Is this goal challenging?
+  utter_make_challenging_goal:
+  - text: Reword your goal to make it more challenging.
+  utter_ask_persistent_goal:
+  - text: Do you intend to work as long as it take to complete the goal?
+  utter_make_persistent_goal:
+  - text: Reword your goal in a way that you will want to work towards completing it.
+  utter_ask_goal_actions:
+  - text: What actions will you take to complete the goal?
+  utter_confirm_goal:
+  - text: Do you want to add this goal?
+  utter_goodbye:
+  - text: Ok. Bye
+  utter_no_worries:
+  - text: No problem :)
+  utter_iamabot:
+  - text: I am a conversational agent, powered by Rasa.
+  utter_what_is_goal:
+  - text: A goal is anything that you wish to achieve or accomplish. It is the desired outcome of some activity or effort.
+  utter_specific:
+  - text: The goal must be specific.
+  utter_effortful:
+  - text: The goal must involve some effort.
+  utter_persistence:
+  - text: You must be willing to persist through the goal.
+  utter_strategy:
+  - text: Goal must have a strategy.
+  utter_does_this_help:
+  - text: Does this help?
+  utter_example_goal:
+  - text: This is an example goal.
+  utter_about_what:
+  - text: Goalbot is a goal setting bot.
+  utter_about_purpose:
+  - text: The pupose of Goalbot is to help you set goals in a way that you are more likely to achieve them.
+  utter_about_why:
+  - text: Achieving your goals have been shown to improve wellbeing and has a virtuouse circle of improving performance.
+  utter_slots_values:
+  - text: |
+      Here are the slot values:
+       - Goal: {goal}
+       - Specific Goal: {specific_goal}
+       - Challenging Goal: {challenging_goal}
+       - Persistent Goal: {persistent_goal}
+       - Goal Actions: {goal_actions}
+
+actions:
+- action_submit_results
+- utter_do
+- utter_goodbye
+- utter_greet
+- utter_make_challenging_goal
+- utter_make_specific_goal
+- utter_slots_values
+- utter_welcome
+- validate_goal_form
+
+forms:
+  goal_form:
+    goal:
+    - type: from_text
+      intent: null
+    specific_goal:
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    challenging_goal:
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    persistent_goal:
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    goal_actions:
+    - type: from_text
+      intent: goal_actions
