@@ -12,7 +12,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.forms import FormValidationAction
 from rasa_sdk.types import DomainDict
-
+import time
 
 class ValidateGoalForm(FormValidationAction):
     def name(self) -> Text:
@@ -30,6 +30,19 @@ class ValidateGoalForm(FormValidationAction):
     #     else:
     #         return {"exercise": "None", "confirm_exercise": False }
 
+    def validate_goal(
+        self,
+        value: Text,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> Dict[Text, Any]:
+
+        """Validate goal"""
+
+        return []
+
+
     def validate_specific_goal(
         self,
         value: Text,
@@ -40,12 +53,21 @@ class ValidateGoalForm(FormValidationAction):
 
         """Validate specific goal"""
 
+        goal_intent = tracker.get_intent_of_latest_message()
+
+        print (goal_intent)
+
         # Check if specific goal is no and ask them to restate the goal
         if value:
             return {"specific_goal": True}
         else:
-            dispatcher.utter_message(response="utter_make_specific_goal")
-            return {"goal": None, "specific_goal": None}
+            if goal_intent == "deny":
+                dispatcher.utter_message(response="utter_make_specific_goal")
+                return {"goal": None, "specific_goal": None}
+            else:
+                dispatcher.utter_message(response="utter_explain_specific")
+                return {"specific_goal": None}
+
     
     def validate_challenging_goal(
         self,
@@ -57,13 +79,22 @@ class ValidateGoalForm(FormValidationAction):
 
         """Validate challenging goal"""
 
+        goal_intent = tracker.get_intent_of_latest_message()
+
+        print (goal_intent)
+        
         # Check if challenging goal is no and ask them to restate the goal
         if value:
             return {"challenging_goal": True}
         else:
-            dispatcher.utter_message(response="utter_make_challenging_goal")
-            return {"goal": None, "challenging_goal": None}
+            if goal_intent == "deny":
+                dispatcher.utter_message(response="utter_make_challenging_goal")
+                return {"goal": None, "challenging_goal": None}
+            else:
+                dispatcher.utter_message(response="utter_explain_effortful")
+                return {"challenging_goal": None}
     
+
     def validate_persistent_goal(
         self,
         value: Text,
@@ -74,13 +105,22 @@ class ValidateGoalForm(FormValidationAction):
 
         """Validate persistent goal"""
 
+        goal_intent = tracker.get_intent_of_latest_message()
+
+        print (goal_intent)
+
         # Check if persistent goal is no
         if value:
             return {"persistent_goal": True}
         else:
-            dispatcher.utter_message(response="utter_make_persistent_goal")
-            return {"persistent_goal": False}
+            if goal_intent == "deny":
+                dispatcher.utter_message(response="utter_make_persistent_goal")
+                return {"persistent_goal": False}
+            else:
+                dispatcher.utter_message(response="utter_explain_persistence")
+                return {"persistent_goal": None}
     
+
     def validate_goal_actions(
         self,
         value: Text,
@@ -91,8 +131,17 @@ class ValidateGoalForm(FormValidationAction):
 
         """Validate goal actions"""
 
+        goal_intent = tracker.get_intent_of_latest_message()
+
+        print (goal_intent)
+
+        # Check if asking to explain action
+        if goal_intent == "explain":
+            dispatcher.utter_message(response="utter_explain_strategy")
+            return {"goal_actions": None}
+
         return []
-    
+
 
 
 class ActionSubmitResults(Action):
@@ -112,27 +161,74 @@ class ActionSubmitResults(Action):
         persistent_goal = tracker.get_slot("persistent_goal")
         goal_actions = tracker.get_slot("goal_actions")
 
-
-        # confirm_exercise = tracker.get_slot("confirm_exercise")
-        # exercise = tracker.get_slot("exercise")
-        # sleep = tracker.get_slot("sleep")
-        # stress = tracker.get_slot("stress")
-        # diet = tracker.get_slot("diet")
-
-
-        # response = create_health_log(
-        #         confirm_exercise=confirm_exercise,
-        #         exercise=exercise,
-        #         sleep=sleep,
-        #         stress=stress,
-        #         diet=diet,
-        #         goal=goal
-        #     )
-
         dispatcher.utter_message("Thanks, your answers have been recorded!")
-        return []
+        return
 
 
+class ActionShowGoals(Action):
+    def name(self) -> Text:
+        return "action_show_goals"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+
+        goal = tracker.get_slot("goal")
+        
+        if goal:
+            dispatcher.utter_message(response="utter_show_goal")
+        else:
+            dispatcher.utter_message(response="utter_no_goal")
+            dispatcher.utter_message(response="utter_do")
+        
+        return
+
+
+class ActionExplainGoals(Action):
+    def name(self) -> Text:
+        return "action_explain_goals"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+
+        dispatcher.utter_message(response="utter_what_is_goal")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_explain_specific")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_explain_effortful")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_explain_persistence")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_explain_strategy")
+        
+        return
+
+
+class ActionAboutBot(Action):
+    def name(self) -> Text:
+        return "action_about_bot"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict]:
+
+        dispatcher.utter_message(response="utter_about_what")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_about_purpose")
+        # time.sleep(1)
+        dispatcher.utter_message(response="utter_about_why")
+        
+        return
 
 
 #

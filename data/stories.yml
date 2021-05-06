@@ -2,28 +2,36 @@ version: "2.0"
 
 stories:
 
-# - story: happy path
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - action: utter_welcome
-#   - action: utter_do
-#   - intent: goal_add
-#   - action: goal_form
-#   - active_loop: goal_form
-
-- story: learning path happy
+- story: greet path
   steps:
   - intent: greet
   - action: utter_greet
   - action: utter_welcome
   - action: utter_do
+#   - intent: goal_add
+#   - action: goal_form
+#   - active_loop: goal_form
+
+- story: learning path
+  steps:
+  # - intent: greet
+  # - action: utter_greet
+  # - action: utter_welcome
+  # - action: utter_do
   - intent: goal_explain
-  - action: utter_what_is_goal
-  - action: utter_specific
-  - action: utter_effortful
-  - action: utter_persistence
-  - action: utter_strategy
+  - action: action_explain_goals
+  - action: utter_does_this_help
+  - intent: affirm
+  - action: utter_do
+
+- story: learning path with example
+  steps:
+  # - intent: greet
+  # - action: utter_greet
+  # - action: utter_welcome
+  # - action: utter_do
+  - intent: goal_explain
+  - action: action_explain_goals
   - action: utter_does_this_help
   - intent: goal_example
   - action: utter_example_goal
@@ -34,16 +42,35 @@ stories:
   # - intent: affirm
   # - action: utter_goodbye
 
-- story: about happy
+- story: learning path with example deny
   steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_welcome
+  # - intent: greet
+  # - action: utter_greet
+  # - action: utter_welcome
+  # - action: utter_do
+  - intent: goal_explain
+  - action: action_explain_goals
+  - action: utter_does_this_help
+  - intent: deny
+  - action: utter_sorry_example
+  - action: utter_example_goal
   - action: utter_do
+  # - intent: goal_add
+  # - action: utter_what_goal
+  # - action: utter_confirm_goal
+  # - intent: affirm
+  # - action: utter_goodbye
+
+- story: about path
+  steps:
+  # - intent: greet
+  # - action: utter_greet
+  # - action: utter_welcome
+  # - action: utter_do
   - intent: bot_about
-  - action: utter_about_what
-  - action: utter_about_purpose
-  - action: utter_about_why
+  - action: action_about_bot
+  # - action: utter_about_purpose
+  # - action: utter_about_why
   - action: utter_do
   # - intent: goal_add
   # - action: utter_what_goal
@@ -52,12 +79,12 @@ stories:
   # - action: utter_goodbye 
 
 
-- story: interactive_story_1
+- story: add goal path
   steps:
-  - intent: greet
-  - action: utter_greet
-  - action: utter_welcome
-  - action: utter_do
+  # - intent: greet
+  # - action: utter_greet
+  # - action: utter_welcome
+  # - action: utter_do
   - intent: goal_add
   - action: goal_form
   - active_loop: goal_form
@@ -84,7 +111,7 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
-  # - action: action_submit_results
+  - action: action_submit_results
   - action: utter_slots_values
   - action: utter_goodbye
 
@@ -132,5 +159,6 @@ stories:
 #   - slot_was_set:
 #     - requested_slot: null
 #   - active_loop: null
+#   - action: action_submit_results
 #   - action: utter_slots_values
 #   - action: utter_goodbye

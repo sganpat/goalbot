@@ -18,7 +18,7 @@ rules:
     - slot_was_set:
       - requested_slot: null
     # The action we want to run when the form is submitted.
-    # - action: action_submit_results
+    - action: action_submit_results
     - action: utter_slots_values
     - action: utter_goodbye
   
@@ -26,6 +26,11 @@ rules:
     steps:
     - intent: show_slots
     - action: utter_slots_values
+
+  - rule: Show goal
+    steps:
+    - intent: goal_get
+    - action: action_show_goals
 
   # - rule: Greeting
   #   steps:
@@ -48,18 +53,4 @@ rules:
     - intent: bot_challenge
     - action: utter_iamabot
 
-  # - rule: Ask specific goal
-  #   steps:
-  #   - intent: ask_specific_goal
-  #   - action: utter_specific_goal
-
-  # - rule: Ask diet question
-  #   steps:
-  #   - intent: ask_eat_healthy
-  #   - action: utter_diet_info
-    
-  # - rule: ask stress question
-  #   steps:
-  #   - intent: ask_lower_stress
-  #   - action: utter_stress_info
 

@@ -154,4 +154,13 @@ nlu:
     - Please show me the current slots
     - What are the current slots
     - Show me the slots
+# - intent: whatdoyoumean
+#   examples: |
+#     - What do you mean by specific?
+#     - What do you mean by challenging?
+#     - What is a specific goal?
+#     - Challenging?
+#     - persist towards the goal?
+  
+
   
