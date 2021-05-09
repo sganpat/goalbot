@@ -1,36 +1,32 @@
 version: '2.0'
-
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
-
 intents:
-  - deny
-  - goal_add
-  - goal_actions
-  - goal_make
-  - affirm
-  - greet
-  - goodbye
-  - inform
-  - thankyou
-  - explain
-  - goal_get
-  - goal_specific
-  - goal_inform
-  - goal_explain
-  - goal_example
-  - goal_anotherexample
-  - bot_help
-  - bot_about
-  - bot_challenge
-  - set_name
-  - show_slots
-  - whatdoyoumean
-
+- greet
+- goal_explain
+- affirm
+- goal_add
+- deny
+- goal_actions
+- goal_make
+- goodbye
+- inform
+- thankyou
+- explain
+- goal_get
+- goal_specific
+- goal_inform
+- goal_example
+- goal_anotherexample
+- bot_help
+- bot_about
+- bot_challenge
+- set_name
+- show_slots
+- whatdoyoumean
 entities:
-  - username
-
+- username
 slots:
   goal:
     type: any
@@ -47,7 +43,6 @@ slots:
   goal_actions:
     type: any
     influence_conversation: false
-
 responses:
   utter_greet:
   - text: Hey!
@@ -56,16 +51,23 @@ responses:
   utter_do:
   - text: What would you like to do?
     buttons:
-    - title: "Add a goal"
-      payload: "/goal_add"
-    - title: "Show me my goal"
-      payload: "/goal_get"
-    - title: "Give me help"
-      payload: "/bot_help"
-    - title: "Explain goal setting"
-      payload: "/goal_explain"
-    - title: "About this bot"
-      payload: "/bot_about"
+    - title: Add a goal
+      payload: /goal_add
+    - title: Show me my goal
+      payload: /goal_get
+    - title: Give me help
+      payload: /bot_help
+    - title: Explain goal setting
+      payload: /goal_explain
+    - title: About this bot
+      payload: /bot_about
+  utter_what_help:
+  - text: What help do you need?
+    buttons:
+    - title: Explain goal setting
+      payload: /goal_explain
+    - title: Show me an example
+      payload: /goal_example
   utter_what_goal:
   - text: What goal would you like to add?
   utter_ask_goal:
@@ -128,61 +130,58 @@ responses:
        - {goal}
   utter_no_goal:
   - text: You don't seem to have any goals setup. Do you wish to add one now?
-
-
 actions:
+- action_about_bot
+- action_explain_goals
+- action_show_goals
 - action_submit_results
 - utter_do
+- utter_does_this_help
 - utter_goodbye
 - utter_greet
 - utter_make_challenging_goal
 - utter_make_specific_goal
 - utter_slots_values
-- utter_welcome
-- utter_does_this_help
 - utter_sorry_example
+- utter_welcome
 - validate_goal_form
-- action_show_goals
-- action_explain_goals
-- action_about_bot
-
 forms:
   goal_form:
     goal:
-      - type: from_text
-        intent: null
+    - type: from_text
+      intent: null
     specific_goal:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
-      - type: from_intent
-        intent: explain
-        value: false
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    - type: from_intent
+      intent: explain
+      value: false
     challenging_goal:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
-      - type: from_intent
-        intent: explain
-        value: false
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    - type: from_intent
+      intent: explain
+      value: false
     persistent_goal:
-      - type: from_intent
-        intent: affirm
-        value: true
-      - type: from_intent
-        intent: deny
-        value: false
-      - type: from_intent
-        intent: explain
-        value: false
+    - type: from_intent
+      intent: affirm
+      value: true
+    - type: from_intent
+      intent: deny
+      value: false
+    - type: from_intent
+      intent: explain
+      value: false
     goal_actions:
-      - type: from_text
-        intent: null
-      - type: from_text
-        intent: explain
+    - type: from_text
+      intent: null
+    - type: from_text
+      intent: explain

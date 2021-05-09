@@ -162,3 +162,89 @@ stories:
 #   - action: action_submit_results
 #   - action: utter_slots_values
 #   - action: utter_goodbye
+
+- story: interactive_story_explain_goals_happy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_welcome
+  - action: utter_do
+  - intent: goal_explain
+  - action: action_explain_goals
+  - action: utter_does_this_help
+  - intent: affirm
+  - action: utter_do
+  - intent: goal_add
+  - action: goal_form
+  - active_loop: goal_form
+  - slot_was_set:
+    - requested_slot: goal
+  - slot_was_set:
+    - goal: i want to build a robot
+  - slot_was_set:
+    - requested_slot: specific_goal
+  - slot_was_set:
+    - specific_goal: true
+  - slot_was_set:
+    - requested_slot: challenging_goal
+  - slot_was_set:
+    - challenging_goal: true
+  - slot_was_set:
+    - requested_slot: persistent_goal
+  - slot_was_set:
+    - persistent_goal: true
+  - slot_was_set:
+    - requested_slot: goal_actions
+  - slot_was_set:
+    - goal_actions: i will work really hard
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_results
+  - action: utter_slots_values
+  - action: utter_goodbye
+
+
+- story: interactive_story_explain_goals_unhappy
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_welcome
+  - action: utter_do
+  - intent: goal_explain
+  - action: action_explain_goals
+  - action: utter_does_this_help
+  - intent: deny
+  - action: utter_sorry_example
+  - action: utter_example_goal
+  - action: utter_do
+  - intent: goal_add
+  - action: goal_form
+  - active_loop: goal_form
+  - slot_was_set:
+    - requested_slot: goal
+  - slot_was_set:
+    - goal: i want to build a robot
+  - slot_was_set:
+    - requested_slot: specific_goal
+  - slot_was_set:
+    - specific_goal: true
+  - slot_was_set:
+    - requested_slot: challenging_goal
+  - slot_was_set:
+    - challenging_goal: true
+  - slot_was_set:
+    - requested_slot: persistent_goal
+  - slot_was_set:
+    - persistent_goal: true
+  - slot_was_set:
+    - requested_slot: goal_actions
+  - slot_was_set:
+    - goal_actions: i will work really hard
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_submit_results
+  - action: utter_slots_values
+  - action: utter_goodbye
+

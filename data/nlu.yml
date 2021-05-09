@@ -150,7 +150,7 @@ nlu:
     - Call me [John](username)
     - Call me [Mary](username)
 - intent: show_slots
-  examples: | 
+  examples: |
     - Please show me the current slots
     - What are the current slots
     - Show me the slots
@@ -161,6 +161,3 @@ nlu:
 #     - What is a specific goal?
 #     - Challenging?
 #     - persist towards the goal?
-  
-
-  
